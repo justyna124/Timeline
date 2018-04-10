@@ -25,7 +25,6 @@ function AddEventFormController(form) {
         form.endDate.value = formatDate(endDate);
         form.eventName.value = new Date().toISOString();
     }
-
 }
 
 AddEventFormController.prototype.addEvent = function () {
@@ -35,6 +34,8 @@ AddEventFormController.prototype.addEvent = function () {
     try {
         eventManager.addEvent(startDate, endDate, eventName);
         timeline.setEvents(eventManager.events);
+        console.log(eventManager)
+
     } catch (e) {
         if ('ValidationError' === e.name) {
             alert(e.message);

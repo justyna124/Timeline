@@ -8,58 +8,28 @@
     position: relative;
 }
 
-
-/*.spot{*/
-/*height: 1px;*/
-/*width: 20px;*/
-/*float: left;*/
-/*margin-left: -51px;*/
-/*background-color: #dc8ca1;*/
-/*}*/
-/*.date-one{*/
-/*margin-left: -90px;*/
-/*position: absolute;*/
-/*margin-top: -11px;*/
-/*}*/
-/*.date-two{*/
-/*margin-left: -90px;*/
-/*position: absolute;*/
-/*margin-top: -211px;*/
-/*}*/
-/*.date-three{*/
-/*margin-left: -90px;*/
-/*position: absolute;*/
-/*margin-top: -61px;*/
-/*}*/
-/*.date-four{*/
-/*margin-left: -90px;*/
-/*position: absolute;*/
-/*margin-top: 39px;*/
-/*}*/
-li {
-
-}
-
 .ticker {
     margin-left: -66px;
     position: absolute;
     list-style: none;
     height: 10px;
 }
+
 .ticker .date {
     height: 10px;
     font-size: 10px;
     float: left;
 }
+
 .ticker .dash {
     margin-left: 5px;
     background-color: black;
-    height: 1px ;
+    height: 1px;
     width: 10px;
     display: inherit;
 
-
 }
+
 .ticker {
     vertical-align: middle;
 
@@ -68,62 +38,60 @@ li {
 .timeline .event {
     border-radius: 10px;
     list-style: none;
-    width: 10px;
+    width: 20px;
     background-color: deeppink;
     position: absolute;
 
 }
+
+.details {
+    margin-left: 12px;
+
+}
+
 .timeline .event .details {
-    display:none;
+    display: none;
     position: absolute;
+    z-index: 2;
+    background: #fff;
+    border: 1px solid #aaa;
+    min-width: 100px;
 }
+
 .timeline .event:hover .details {
-    display:block;
+    display: block;
+
 }
-.date{
+
+.date {
     margin-top: -8px;
     margin-left: -50px;
 }
-.timeline .event.battle img{
+
+.timeline .event.battle img {
     height: 20px;
     width: 20px;
     /*display: block;*/
 
 }
+.showDetails{
+    display: block;
+}
+.showDetails{
+    display: block;
+}
 
-/*.break-before-timeline {*/
-    /*min: 50px;*/
-    /*min-height: 50px;*/
-/*}*/
+.imgPerson{
+    margin-top: 10px;
+    margin-left: 1px;
+    width: 18px;
+    height: 25px;
+    transition: transform .2s;
+}
+.imgPerson:hover{
+    transform: scale(5.0);
+    z-index: 2;
+
+}
 
 
-
-/*.one{*/
-/*min-height: 250px;*/
-/*background-color: #b2d0dc;*/
-/*}*/
-/*.two{*/
-/*height: 100px;*/
-/*margin-left: 6%;*/
-/*background-color: #7aaa7e;*/
-/*}*/
-/*.three{*/
-/*height: 150px;*/
-/*margin-left: 12%;*/
-/*margin-top: -50px;*/
-/*background-color: #dc8a6f;*/
-
-/*}*/
-/*.four{*/
-/*height: 50px;*/
-/*background-color: #dcd16a;*/
-/*}*/
-/*.secondEvent{*/
-/*margin-top: -200px;*/
-/*}*/
-/*.thirdEvent{*/
-/*margin-top: -150px;*/
-/*}*/
-/*.fourEvent{*/
-/*margin-top: 50px;*/
-/*}*/

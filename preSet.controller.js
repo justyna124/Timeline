@@ -4,10 +4,7 @@ function PreSetController(form) {
     form.onsubmit = function () {
         return false;
     }
-    // form.scale.onchange = function (event) {
-    //     timeline.setScale(event.target.value);
-    //     console.log(event.target.value);
-    // }
+
     form.addWriters.onclick = function () {
         timeline.setEvents(writers);
     }
@@ -20,6 +17,7 @@ function PreSetController(form) {
     form.addAll.onclick = function () {
         timeline.setEvents(writers.concat(battles,actsOfKings));
     }
+
 }
 PreSetController.prototype.addEvent = function () {
     var startDate = this.form.startDate.value;

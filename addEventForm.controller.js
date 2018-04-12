@@ -14,8 +14,6 @@ function AddEventFormController(form) {
         console.log(event.target.value);
     }
     form.random.onclick = function () {
-        // timeline.addRandomEvent();
-        // console.log('2622')
         function formatDate(date) {
             return new Date(date).toISOString().split('T')[0];
         }
@@ -26,7 +24,6 @@ function AddEventFormController(form) {
         form.eventName.value = new Date().toISOString();
     }
 }
-
 AddEventFormController.prototype.addEvent = function () {
     var startDate = this.form.startDate.value;
     var endDate = this.form.endDate.value;
@@ -35,7 +32,6 @@ AddEventFormController.prototype.addEvent = function () {
         eventManager.addEvent(startDate, endDate, eventName);
         timeline.setEvents(eventManager.events);
         console.log(eventManager)
-
     } catch (e) {
         if ('ValidationError' === e.name) {
             alert(e.message);

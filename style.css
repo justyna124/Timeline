@@ -32,7 +32,6 @@
 
 .ticker {
     vertical-align: middle;
-
 }
 
 .timeline .event {
@@ -41,27 +40,54 @@
     width: 20px;
     background-color: deeppink;
     position: absolute;
-
 }
-
-.details {
-    margin-left: 12px;
-
+.timeline .details {
+display: none;
+position: absolute;
+z-index: 2;
+background: #fff;
+border: 1px solid #aaa;
+min-width: 100px;
+    margin-left: 20px;
 }
-
-.timeline .event .details {
-    display: none;
+.timeline .setImg .imgPerson{
     position: absolute;
-    z-index: 2;
-    background: #fff;
-    border: 1px solid #aaa;
-    min-width: 100px;
+
 }
 
-.timeline .event:hover .details {
+/*.timeline.setImg .details{*/
+    /*position: absolute;*/
+/*}*/
+/*.details {*/
+    /*margin-left: 20px;*/
+
+/*}*/
+
+
+.timeline.show-all-labels .setImg .details {
     display: block;
 
 }
+/*.timeline.show-all-labels:hover .event .details{*/
+
+/*width: 100px;*/
+/*}*/
+/*.timeline .event .details {*/
+    /*display: none;*/
+    /*position: absolute;*/
+    /*z-index: 2;*/
+    /*background: #fff;*/
+    /*border: 1px solid #aaa;*/
+    /*min-width: 100px;*/
+/*}*/
+
+/*.timeline .event:hover .details {*/
+    /*display: block;*/
+    /*z-index: 4;*/
+
+
+/*}*/
+
 
 .date {
     margin-top: -8px;
@@ -74,19 +100,17 @@
     /*display: block;*/
 
 }
-.showDetails{
-    display: block;
-}
+
 .showDetails{
     display: block;
 }
 
 .imgPerson{
-    margin-top: 10px;
     margin-left: 1px;
     width: 18px;
     height: 25px;
     transition: transform .2s;
+    position: relative;
 }
 .imgPerson:hover{
     transform: scale(5.0);

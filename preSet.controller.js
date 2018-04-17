@@ -17,7 +17,9 @@ function PreSetController(form) {
     form.addAll.onclick = function () {
         timeline.setEvents(writers.concat(battles,actsOfKings));
     }
-
+    form.addLabels.onchange=function (){
+        timeline.showAllLabels();
+    }
 }
 PreSetController.prototype.addEvent = function () {
     var startDate = this.form.startDate.value;

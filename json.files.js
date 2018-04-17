@@ -74,56 +74,56 @@ var writers = [{
     "startDate": "1838-09-11",
     "endDate": "1897-08-02",
     "eventName": "Adam Asnyk",
-    "picture": ""
+    "picture": "http://www.info.kalisz.pl/biograf/images/asnyk.jpg"
 }, {
     "name": "Eliza",
     "lastname": "Orzeszkowa",
     "startDate": "1841-06-06",
     "endDate": "1910-05-18",
     "eventName": "Eliza Orzeszkowa",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Orzeszkowa1900.jpg/220px-Orzeszkowa1900.jpg"
 }, {
     "name": "Bolesław",
     "lastname": "Prus",
     "startDate": "1847-08-20",
     "endDate": "1912-05-19",
     "eventName": "Bolesław Prus",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Boles%C5%82aw_Prus_studio_portrait.jpg/1200px-Boles%C5%82aw_Prus_studio_portrait.jpg"
 }, {
     "name": "Maria",
     "lastname": "Konopnicka",
     "startDate": "1842-05-23",
     "endDate": "1910-10-08",
     "eventName": "Maria Konopnicka",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Maria_Konopnicka001.jpg"
 }, {
     "name": "Józef",
     "lastname": "Szujski",
     "startDate": "1835-06-16",
     "endDate": "1883-02-07",
     "eventName": "Józef Szujski",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Jozef_Szujski.jpg/178px-Jozef_Szujski.jpg"
 }, {
     "name": "Leopold",
     "lastname": "Staff",
     "startDate": "1878-11-14",
     "endDate": "1957-05-31",
     "eventName": "Leopold Staff",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/LeopoldStaff.jpg/161px-LeopoldStaff.jpg"
 }, {
     "name": "Stefan",
     "lastname": "Żeromski",
     "startDate": "1864-10-14",
     "endDate": "1925-11-20",
     "eventName": "Stefan Żeromski",
-    "picture": ""
+    "picture": "http://upload.wikimedia.org/wikipedia/commons/d/dc/Stefan_Zeromski_Polish_writer.jpg"
 }, {
     "name": "Stanisław",
     "lastname": "Wyspiański",
     "startDate": "1869-01-15",
     "endDate": "1907-11-28",
     "eventName": "Stanisław Wyspiański",
-    "picture": ""
+    "picture": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Stanis%C5%82aw_Wyspia%C5%84ski3.png"
 }, {
     "name": "Jan",
     "lastname": "Brzechwa",

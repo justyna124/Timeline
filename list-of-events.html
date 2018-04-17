@@ -46,8 +46,7 @@
                 <input type="number" step=".1" class="form-control" id="scale" name="scale" min="0.001">
                 <button type="submit" class="btn btn-default">ADD EVENT</button>
                 <button type="submit" name="random">Random event</button>
-                <input id="toggleLabel" type="checkbox" name="checkbox">
-                <label id="checkboxLabel">Show Label</label>
+
             </form>
             <div class="row">
                 <form id="addEventWriters">
@@ -55,6 +54,8 @@
                     <button type="submit" name="addActsOfKings">Add Acts of Kings</button>
                     <button type="submit" name="addBattles">Add Battles</button>
                     <button type="submit" name="addAll">Add all</button>
+                    <input id="toggleLabel" type="checkbox" name="addLabels">
+                    <label id="checkboxLabel">Show Label</label>
                 </form>
             </div>
         </div>
@@ -75,8 +76,6 @@
     document.getElementById('scale').value = timeline.scale;
     // timeline.setEvents(writers);
     new PreSetController(document.getElementById('addEventWriters'));
-
-
 </script>
 </body>
 </html>

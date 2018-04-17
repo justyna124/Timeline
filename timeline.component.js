@@ -74,17 +74,23 @@ Timeline.prototype._renderEvents = function (topDate) {
 };
 Timeline.prototype._renderEvent = function (event, eventIndex, topDate) {
     var itemElement = document.createElement('li');
-    // console.log(eventIndex);
-    // console.log(event)
+    var additivesToItemElement = document.createElement('div')
+    var wrapperPoleAndDetails = document.createElement('div')
+    console.log(eventIndex);
     itemElement.className = ['event', event.type].join(' ');
+    additivesToItemElement.className = 'setImg'
+    console.log(['event', event.type].join(' '))
     var duration = new Date(event.endDate) - new Date(event.startDate);
     var MILLISECONDS_IN_DAY = 24 * 3600 * 1000;
     var durationInDays = duration / (MILLISECONDS_IN_DAY);
     itemElement.style.height = (durationInDays * this.scale) + 'px';
     itemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
+    additivesToItemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
+
     var endDateOffset = new Date(topDate) - new Date(event.endDate);
     var endDateOffsetInDays = endDateOffset / (MILLISECONDS_IN_DAY);
     itemElement.style.top = (endDateOffsetInDays * this.scale) + 'px';
+
     if (event.type === 'battle') {
         var icon = document.createElement('img');
         icon.src = 'images/battle.png';
@@ -93,29 +99,57 @@ Timeline.prototype._renderEvent = function (event, eventIndex, topDate) {
     if (event.type != 'battle' && !isEmpty(event.picture)) {
         var imgPerson = document.createElement('img');
         imgPerson.setAttribute('src', event.picture);
-        console.log(event.picture)
-        imgPerson.className = 'imgPerson'
-        itemElement.appendChild(imgPerson);
+        imgPerson.className = 'imgPerson';
+        imgPerson.style.marginTop = (endDateOffsetInDays * this.scale) + 10 + 'px';
+        additivesToItemElement.appendChild(imgPerson);
+
     }
-    this.root.appendChild(itemElement);
+    this.root.appendChild(wrapperPoleAndDetails);
+    wrapperPoleAndDetails.appendChild(itemElement);
+    wrapperPoleAndDetails.appendChild(additivesToItemElement);
+
     var label = document.createElement('div');
     label.className = 'details';
     label.innerHTML = event.eventName;
-    itemElement.appendChild(label);
+    additivesToItemElement.appendChild(label);
     itemElement.onmousemove = function (e) {
-        console.log(e)
-        label.style.top = e.offsetY + 'px';
+        label.style.display = 'block';
+        label.style.position = 'fixed';
+        label.style.left = e.pageX + 'px';
+        label.style.top = e.pageY + 'px ';
         var durationInYears = durationInDays / 365;
         var age = (durationInYears - (durationInYears * e.layerY / e.target.offsetHeight)).toFixed(0);
         if (event.type != 'battle') {
             label.innerHTML = event.eventName + ' ' + age + ' years old';
             e.target.style.position = 'absolute';
         }
+        if (toggleLabel.checked) {
+            label.innerHTML = event.eventName;
+        }
     }
-    var checkbox = document.getElementById('toggleLabel');
-    checkbox.onchange = function () {
-
-
+    itemElement.onmouseout = function (e) {
+        label.style.display = 'none';
+    }
+}
+Timeline.prototype.showAllLabels = function () {
+    // console.log(timeline)
+    console.log('gghh')
+    // console.log(this.root)
+    var toggleLabel = document.getElementById('toggleLabel');
+    var label = document.getElementsByClassName('details');
+    var itemElement = document.getElementsByClassName('event')
+    // toggleLabel.onchange=function () {
+    if (toggleLabel.checked) {
+        this.root.classList.add('show-all-labels');
+        for (var j = 0; j < label.length; j++) {
+            console.log(label[j])
+            console.log(j)
+           label[j].style.position='absolute';
+            label[j].style.top=itemElement[j].style.top;
+        }
+    }
+    else {
+        this.root.classList.remove('show-all-labels');
     }
 
 }

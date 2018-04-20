@@ -3,17 +3,14 @@ function Timeline(rootElement) {
     this.events = [];
     this.setScale(0.1);
 };
-
 Timeline.prototype.setScale = function (scale) {
     this.scale = scale;
     this.render();
 };
-
 Timeline.prototype.setEvents = function (events) {
     this.events = events;
     this.render();
 };
-
 Timeline.prototype.render = function () {
     this._clearRootElement();
     var topDate = this._getTopDate();
@@ -21,8 +18,8 @@ Timeline.prototype.render = function () {
     this._renderEvents(topDate);
     if (this.events.length)
         this._renderAxis(topDate, minDate);
+    this.showAllLabels();
 };
-
 Timeline.prototype._clearRootElement = function () {
     this.root.innerHTML = "";
 };
@@ -45,11 +42,9 @@ Timeline.prototype._getMinDate = function () {
     return startDate;
 };
 Timeline.prototype._renderAxis = function (topDate, minDate) {
-
     var timeDifferenceInMillis = new Date(topDate) - new Date(minDate);
     var timelineHight = (timeDifferenceInMillis / (24 * 3600 * 1000)) * this.scale;
     var tickerCount = Math.max(1, timelineHight / 20);
-
     var tickerTimeDifferenceInMillis = timeDifferenceInMillis / tickerCount;
     var topDateInMillis = new Date(topDate).getTime();
     for (var i = 0; i < tickerCount; i++) {
@@ -76,21 +71,32 @@ Timeline.prototype._renderEvent = function (event, eventIndex, topDate) {
     var itemElement = document.createElement('li');
     var additivesToItemElement = document.createElement('div')
     var wrapperPoleAndDetails = document.createElement('div')
-    console.log(eventIndex);
     itemElement.className = ['event', event.type].join(' ');
     additivesToItemElement.className = 'setImg'
-    console.log(['event', event.type].join(' '))
+    // console.log(['event', event.type].join(' '))
     var duration = new Date(event.endDate) - new Date(event.startDate);
     var MILLISECONDS_IN_DAY = 24 * 3600 * 1000;
     var durationInDays = duration / (MILLISECONDS_IN_DAY);
     itemElement.style.height = (durationInDays * this.scale) + 'px';
+    console.log(new Date(event.endDate))
     itemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
-    additivesToItemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
+    console.log(event.endDate);
 
+
+
+        for(var i=0;i<event.length;i++){
+            var arrayOfEndDate=[];
+            if(event.endDate){
+                arrayOfEndDate.push(event.endDate);
+                console.log(arrayOfEndDate);
+
+        }
+    }
+
+    additivesToItemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
     var endDateOffset = new Date(topDate) - new Date(event.endDate);
     var endDateOffsetInDays = endDateOffset / (MILLISECONDS_IN_DAY);
     itemElement.style.top = (endDateOffsetInDays * this.scale) + 'px';
-
     if (event.type === 'battle') {
         var icon = document.createElement('img');
         icon.src = 'images/battle.png';
@@ -102,58 +108,54 @@ Timeline.prototype._renderEvent = function (event, eventIndex, topDate) {
         imgPerson.className = 'imgPerson';
         imgPerson.style.marginTop = (endDateOffsetInDays * this.scale) + 10 + 'px';
         additivesToItemElement.appendChild(imgPerson);
-
     }
     this.root.appendChild(wrapperPoleAndDetails);
     wrapperPoleAndDetails.appendChild(itemElement);
     wrapperPoleAndDetails.appendChild(additivesToItemElement);
-
     var label = document.createElement('div');
     label.className = 'details';
     label.innerHTML = event.eventName;
     additivesToItemElement.appendChild(label);
+
     itemElement.onmousemove = function (e) {
         label.style.display = 'block';
         label.style.position = 'fixed';
-        label.style.left = e.pageX + 'px';
-        label.style.top = e.pageY + 'px ';
+        label.style.left = e.clientX + 'px';
+        label.style.top = e.clientY + 'px ';
+
         var durationInYears = durationInDays / 365;
         var age = (durationInYears - (durationInYears * e.layerY / e.target.offsetHeight)).toFixed(0);
         if (event.type != 'battle') {
             label.innerHTML = event.eventName + ' ' + age + ' years old';
             e.target.style.position = 'absolute';
         }
-        if (toggleLabel.checked) {
-            label.innerHTML = event.eventName;
-        }
+
     }
     itemElement.onmouseout = function (e) {
-        label.style.display = 'none';
+        label.style.display = null;
+        label.innerHTML = event.eventName;
+        label.style.position='absolute';
+        label.style.left=null;
+        label.style.top=itemElement.style.top;
     }
 }
 Timeline.prototype.showAllLabels = function () {
-    // console.log(timeline)
-    console.log('gghh')
-    // console.log(this.root)
     var toggleLabel = document.getElementById('toggleLabel');
     var label = document.getElementsByClassName('details');
     var itemElement = document.getElementsByClassName('event')
-    // toggleLabel.onchange=function () {
-    if (toggleLabel.checked) {
+    if (toggleLabel.checked ) {
         this.root.classList.add('show-all-labels');
         for (var j = 0; j < label.length; j++) {
-            console.log(label[j])
-            console.log(j)
-           label[j].style.position='absolute';
-            label[j].style.top=itemElement[j].style.top;
+            label[j].style.position = 'absolute';
+            label[j].style.top = itemElement[j].style.top;
+            label[j].style.left = null;
+            label.innerHTML = event.eventName;
         }
     }
     else {
         this.root.classList.remove('show-all-labels');
     }
-
 }
-
 function isEmpty(string) {
     return null == string || !string.trim().length;
 }

@@ -27,7 +27,6 @@
     height: 1px;
     width: 10px;
     display: inherit;
-
 }
 
 .ticker {
@@ -48,46 +47,21 @@ z-index: 2;
 background: #fff;
 border: 1px solid #aaa;
 min-width: 100px;
-    margin-left: 20px;
+    margin-left: 18px;
 }
+
 .timeline .setImg .imgPerson{
     position: absolute;
 
 }
 
-/*.timeline.setImg .details{*/
-    /*position: absolute;*/
-/*}*/
-/*.details {*/
-    /*margin-left: 20px;*/
-
-/*}*/
-
-
 .timeline.show-all-labels .setImg .details {
     display: block;
 
 }
-/*.timeline.show-all-labels:hover .event .details{*/
-
-/*width: 100px;*/
-/*}*/
-/*.timeline .event .details {*/
-    /*display: none;*/
-    /*position: absolute;*/
-    /*z-index: 2;*/
-    /*background: #fff;*/
-    /*border: 1px solid #aaa;*/
-    /*min-width: 100px;*/
-/*}*/
-
-/*.timeline .event:hover .details {*/
-    /*display: block;*/
-    /*z-index: 4;*/
-
-
-/*}*/
-
+.timeline.show-all-labels .setImg .details:hover {
+    z-index:4;
+}
 
 .date {
     margin-top: -8px;
@@ -97,7 +71,6 @@ min-width: 100px;
 .timeline .event.battle img {
     height: 20px;
     width: 20px;
-    /*display: block;*/
 
 }
 

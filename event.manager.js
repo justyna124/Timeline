@@ -24,17 +24,14 @@
 var eventsCount = 0;
 var left = 0;
 var bottom = 0;
-
 function throwValidationError(msg) {
     var error = new Error(msg);
     error.name = 'ValidationError';
     throw error
 }
-
 function EventManager() {
     this.events = [];
 }
-
 EventManager.prototype.addEvent = function (startDate, endDate, eventName) {
     if (!startDate ) {
         throwValidationError('startDate is undefined');
@@ -50,5 +47,4 @@ EventManager.prototype.addEvent = function (startDate, endDate, eventName) {
     }
     this.events.push({startDate: startDate, endDate: endDate, name: eventName});
 };
-
 var eventManager = new EventManager();

@@ -4,7 +4,6 @@ function PreSetController(form) {
     form.onsubmit = function () {
         return false;
     }
-
     form.addWriters.onclick = function () {
         timeline.setEvents(writers);
     }

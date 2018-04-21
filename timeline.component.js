@@ -9,6 +9,20 @@ Timeline.prototype.setScale = function (scale) {
 };
 Timeline.prototype.setEvents = function (events) {
     this.events = events;
+
+    console.log(events)
+    events.sort(function(a,b) {
+        console.log(a,b)
+
+        var dateA = new Date(a.endDate);
+        var  dateB = new Date(b.endDate);
+        if( dateA<  dateB) {
+            return -1;
+        }else if(dateA>  dateB) {
+            return 1;
+        }
+        return 0;
+    });
     this.render();
 };
 Timeline.prototype.render = function () {
@@ -78,20 +92,9 @@ Timeline.prototype._renderEvent = function (event, eventIndex, topDate) {
     var MILLISECONDS_IN_DAY = 24 * 3600 * 1000;
     var durationInDays = duration / (MILLISECONDS_IN_DAY);
     itemElement.style.height = (durationInDays * this.scale) + 'px';
-    console.log(new Date(event.endDate))
+    // console.log(new Date(event.endDate))
     itemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
-    console.log(event.endDate);
-
-
-
-        for(var i=0;i<event.length;i++){
-            var arrayOfEndDate=[];
-            if(event.endDate){
-                arrayOfEndDate.push(event.endDate);
-                console.log(arrayOfEndDate);
-
-        }
-    }
+    // console.log(event.endDate);
 
     additivesToItemElement.style.marginLeft = (10 + (1 + eventIndex) * 30) + 'px';
     var endDateOffset = new Date(topDate) - new Date(event.endDate);
